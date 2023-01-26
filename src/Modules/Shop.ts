@@ -1,10 +1,11 @@
-import { AxiosInstance } from "axios";
-import { Chat } from "./Chat";
-import HttpClient from "../utils/http";
-import { Logistics } from "./Logistics";
-import { Order } from "./Order";
-import { Returns } from "./Returns";
-import { Product } from "./Product";
+import { AxiosInstance } from 'axios';
+import HttpClient from '../utils/http';
+import { Chat } from './Chat';
+import { Logistics } from './Logistics';
+import { Order } from './Order';
+import { Product } from './Product';
+import { Returns } from './Returns';
+import { Payment } from './Payment';
 
 export class Shop {
   // protected host: string;
@@ -18,6 +19,7 @@ export class Shop {
   private _logistics: Logistics;
   private _returns: Returns;
   private _product: Product;
+  private _payment: Payment;
 
   get Order() {
     if (!this._order) this._order = new Order(this.http);
@@ -38,6 +40,10 @@ export class Shop {
   get Product() {
     if (!this._product) this._product = new Product(this.http);
     return this._product;
+  }
+  get Payment() {
+    if (!this._payment) this._payment = new Payment(this.http);
+    return this._payment;
   }
 
   constructor(params: {
@@ -74,19 +80,28 @@ export class Shop {
     auth_time: number;
     expire_time: number;
   }> {
-    const apiPath = "shop/get_shop_info";
+    const apiPath = 'shop/get_shop_info';
     const result = await this.http.get(apiPath);
     return result.data;
   }
 
-  async getProfile(): Promise<{ error: string; message: string; response: any; request_id: string }> {
-    const apiPath = "shop/get_profile";
+  async getProfile(): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    request_id: string;
+  }> {
+    const apiPath = 'shop/get_profile';
     const result = await this.http.get(apiPath);
     return result.data;
   }
 
-  async updateProfile(params: { shop_name?: string; shop_logo?: string; description?: string }) {
-    const apiPath = "shop/update_profile";
+  async updateProfile(params: {
+    shop_name?: string;
+    shop_logo?: string;
+    description?: string;
+  }) {
+    const apiPath = 'shop/update_profile';
     const result = await this.http.post(apiPath, params);
     return result.data;
   }

@@ -1,9 +1,10 @@
-import { AxiosInstance } from "axios";
-import { Chat } from "./Chat";
-import { Logistics } from "./Logistics";
-import { Order } from "./Order";
-import { Returns } from "./Returns";
-import { Product } from "./Product";
+import { AxiosInstance } from 'axios';
+import { Chat } from './Chat';
+import { Logistics } from './Logistics';
+import { Order } from './Order';
+import { Product } from './Product';
+import { Returns } from './Returns';
+import { Payment } from './Payment';
 export declare class Shop {
     protected http: AxiosInstance;
     private _order;
@@ -11,11 +12,13 @@ export declare class Shop {
     private _logistics;
     private _returns;
     private _product;
+    private _payment;
     get Order(): Order;
     get Chat(): Chat;
     get Logistics(): Logistics;
     get Returns(): Returns;
     get Product(): Product;
+    get Payment(): Payment;
     constructor(params: {
         host: string;
         partner_id: number;

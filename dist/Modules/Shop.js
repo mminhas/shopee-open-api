@@ -13,12 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Shop = void 0;
-const Chat_1 = require("./Chat");
 const http_1 = __importDefault(require("../utils/http"));
+const Chat_1 = require("./Chat");
 const Logistics_1 = require("./Logistics");
 const Order_1 = require("./Order");
-const Returns_1 = require("./Returns");
 const Product_1 = require("./Product");
+const Returns_1 = require("./Returns");
+const Payment_1 = require("./Payment");
 class Shop {
     constructor(params) {
         // this.host = params.host;
@@ -59,23 +60,28 @@ class Shop {
             this._product = new Product_1.Product(this.http);
         return this._product;
     }
+    get Payment() {
+        if (!this._payment)
+            this._payment = new Payment_1.Payment(this.http);
+        return this._payment;
+    }
     getShopInfo() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = "shop/get_shop_info";
+            const apiPath = 'shop/get_shop_info';
             const result = yield this.http.get(apiPath);
             return result.data;
         });
     }
     getProfile() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = "shop/get_profile";
+            const apiPath = 'shop/get_profile';
             const result = yield this.http.get(apiPath);
             return result.data;
         });
     }
     updateProfile(params) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = "shop/update_profile";
+            const apiPath = 'shop/update_profile';
             const result = yield this.http.post(apiPath, params);
             return result.data;
         });
