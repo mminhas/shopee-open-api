@@ -92,7 +92,13 @@ export class Logistics {
     order_list: { order_sn: string; package_number?: string }[];
   }): Promise<{ error?: string; message?; request_id?: string }> {
     const apiPath = "logistics/download_shipping_document";
-    const result = await this.http.post(apiPath, params);
+    const result = await this.http.post(apiPath, params, {
+      responseType: "arraybuffer",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/pdf",
+      }
+    });
     return result.data;
   }
 

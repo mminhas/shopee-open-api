@@ -1,6 +1,6 @@
 {
-  "name": "shopee-open-api",
-  "version": "1.0.4",
+  "name": "shopee-open-api-payment-module",
+  "version": "1.0.1",
   "description": "A nodejs wrapper for shopee open API",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/test.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Tan Chong Lim",
+  "author": "Tan Chong Lim, Minhas",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^16.4.10",
@@ -27,5 +27,13 @@
     "shopee",
     "wrapper"
   ],
-  "homepage": "https://github.com/tanchonglim/shopee-open-api"
+  "homepage": "https://github.com/tanchonglim/shopee-open-api",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mminhas/shopee-open-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mminhas/shopee-open-api/issues"
+  }
 }

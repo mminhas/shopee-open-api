@@ -66,7 +66,13 @@ class Logistics {
     downloadShippingDocument(params) {
         return __awaiter(this, void 0, void 0, function* () {
             const apiPath = "logistics/download_shipping_document";
-            const result = yield this.http.post(apiPath, params);
+            const result = yield this.http.post(apiPath, params, {
+                responseType: "arraybuffer",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/pdf",
+                }
+            });
             return result.data;
         });
     }
