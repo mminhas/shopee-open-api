@@ -97,13 +97,13 @@ const { response } = await shop.Chat.getMessage({ conversation_id: 12344 });
 - Chat
 - Public
 - Returns
+- Payment (Escrow details)
 
 ### Upcoming available modules
 
 - MediaSpace
 - Merchant
 - FirstMile
-- Payment
 - Discount
 - BundleDeal
 - AddOnDeal
@@ -115,3 +115,7 @@ const { response } = await shop.Chat.getMessage({ conversation_id: 12344 });
 - Push
 
 > For more details, please refer to the official website of [Shopee Open API](https://open.shopee.com/).
+
+
+-- To republish the package
+npm publish --access public
