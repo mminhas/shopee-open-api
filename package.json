@@ -1,6 +1,6 @@
 {
   "name": "shopee-open-api-payment-module",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A nodejs wrapper for shopee open API",
   "main": "dist/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "shopee",
     "wrapper"
   ],
-  "homepage": "https://github.com/tanchonglim/shopee-open-api",
+  "homepage": "https://github.com/mminhas/shopee-open-api",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
